@@ -526,7 +526,7 @@ require('lazy').setup({
       formatters_by_ft = {
         lua = { 'stylua' },
         -- Conform can also run multiple formatters sequentially
-        python = { 'isort', 'ruff' },
+        python = { 'ruff_organize_imports', 'ruff_format', 'ruff_fix' },
       },
     },
   },

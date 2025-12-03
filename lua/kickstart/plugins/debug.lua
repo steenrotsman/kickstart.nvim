@@ -100,7 +100,7 @@ return {
         return cwd .. '/.venv/bin/python'
       end
       -- Fallback to system python
-      return 'python'
+      return 'python3'
     end
     local python_path = get_python_path()
     require('dap-python').setup(python_path)
