@@ -468,6 +468,7 @@ require('lazy').setup({
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
         'ruff',
+        'isort',
         'debugpy',
         'jedi-language-server',
       })
@@ -487,21 +488,6 @@ require('lazy').setup({
           end,
         },
       }
-    end,
-  },
-
-  {
-    'lervag/vimtex',
-    lazy = false, -- we don't want to lazy load VimTeX
-    init = function()
-      -- VimTeX configuration goes here, e.g.
-      vim.g.vimtex_view_method = 'mupdf'
-
-      -- Compile with LuaLaTeX
-      vim.keymap.set('n', '<leader>lb', function()
-        vim.g.vimtex_compiler_latexmk_engines = { _ = '-lualatex' }
-        vim.cmd 'VimtexCompile'
-      end, { desc = 'VimTeX [b]uild with LuaLaTeX' })
     end,
   },
 
@@ -649,16 +635,6 @@ require('lazy').setup({
     end,
   },
 
-  { -- UV
-    'benomahony/uv.nvim',
-    dependencies = {
-      'nvim-telescope/telescope.nvim',
-    },
-    opts = {
-      picker_integration = true,
-    },
-  },
-
   { -- You can easily change to a different colorscheme.
     -- Change the name of the colorscheme plugin below, and then
     -- change the command in the config to whatever the name of that colorscheme is.
@@ -727,18 +703,17 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'diff', 'html', 'latex', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'python', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
         enable = true,
-        disable = { 'latex' },
         -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = { 'ruby' },
       },
-      indent = { enable = true, disable = { 'ruby', 'latex' } },
+      indent = { enable = true, disable = { 'ruby' } },
     },
     -- There are additional nvim-treesitter modules that you can use to interact
     -- with nvim-treesitter. You should go explore a few and see what interests you:
