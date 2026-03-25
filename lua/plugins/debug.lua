@@ -127,7 +127,7 @@ return {
     dapui.setup {
       layouts = {
         {
-          elements = { 'scopes', 'breakpoints', 'stacks', 'watches' },
+          elements = { 'scopes' },
           size = 80,
           position = 'right',
         },
