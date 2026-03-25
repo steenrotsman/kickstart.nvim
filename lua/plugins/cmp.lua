@@ -1,12 +1,12 @@
 return {
-    {
-    "micangl/cmp-vimtex",
-    ft = "tex",
+  {
+    'micangl/cmp-vimtex',
+    ft = 'tex',
     config = function()
-        require('cmp_vimtex').setup({})
+      require('cmp_vimtex').setup {}
     end,
-    },
-    { -- Autocompletion
+  },
+  { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
     dependencies = {
@@ -29,7 +29,7 @@ return {
       'saadparwaiz1/cmp_luasnip',
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
-      'hrsh7th/cmp-nvim-lsp-signature-help',
+      'steenrotsman/cmp-nvim-lsp-signature-help',
     },
     config = function()
       -- See `:help cmp`
@@ -94,14 +94,15 @@ return {
           { name = 'path' },
           { name = 'nvim_lsp_signature_help' },
         },
-        cmp.setup.filetype("tex", {
-                sources = {
-                    { name = 'vimtex'},
-                    { name = 'luasnip' },
-                    { name = 'buffer'},
-                },
-            })
+        cmp.setup.filetype('tex', {
+          sources = {
+            { name = 'vimtex' },
+            { name = 'luasnip' },
+            { name = 'buffer' },
+          },
+        }),
       }
     end,
-  }
+  },
 }
+
